@@ -13,7 +13,7 @@ export const handler: CustomAuthorizerHandler = async (
     verifyToken(event.authorizationToken);
     console.log('User was authorized');
 
-    return {
+    const test = {
       principalId: 'user',
       policyDocument: {
         Version: '2010-10-17',
@@ -26,6 +26,10 @@ export const handler: CustomAuthorizerHandler = async (
         ],
       },
     };
+
+    console.log('Authorized success: ', test);
+
+    return test;
   } catch (e) {
     console.log('User was not authorized', e.message);
     return {
